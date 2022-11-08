@@ -3,9 +3,12 @@ sqlserver read excell
 
 ## download extension 
 
+``Microsoft Access Database Engine 2016 Redistributable``
+
 ```
 https://www.microsoft.com/en-us/download/details.aspx?id=54920
 ```
+![](img/img4.jpg)
 
 ## allow extension
 
@@ -43,7 +46,9 @@ FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\data\sim
 SELECT * FROM OPENDATASOURCE('Microsoft.ACE.OLEDB.12.0', 'Data Source=C:\data\simple.xlsx;Extended Properties=EXCEL 12.0')...[Sheet1$];
 ```
 
-### other
+![](img/img1.jpg)
+
+### another
 
 ```
 SELECT * FROM OPENROWSET(
@@ -52,7 +57,9 @@ SELECT * FROM OPENROWSET(
   'SELECT * FROM [EMPMASTER$]'
   )
 ```
+## example excell
 
+![](img/img2.jpg)
 
 FROM : 
 

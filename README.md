@@ -30,13 +30,27 @@ GO
 
 ## command connect
 
-```
---OPENROWSET
-SELECT * 
-FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1.xlsx;', Sheet1$);
+### OPENROWSET
 
---OPENDATASOURCE
-SELECT * FROM OPENDATASOURCE('Microsoft.ACE.OLEDB.12.0', 'Data Source=C:\sample\book1.xlsx;Extended Properties=EXCEL 12.0')...[Sheet1$];
+```
+SELECT * 
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\data\simple.xlsx;', Sheet1$);
+```
+
+### OPENDATASOURCE
+
+```
+SELECT * FROM OPENDATASOURCE('Microsoft.ACE.OLEDB.12.0', 'Data Source=C:\data\simple.xlsx;Extended Properties=EXCEL 12.0')...[Sheet1$];
+```
+
+### other
+
+```
+SELECT * FROM OPENROWSET(
+  'Microsoft.ACE.OLEDB.12.0',
+  'Excel 12.0;Database=\\\\FileServer\\ExcelShare\\HRMSDATA.xlsx;HDR=YES;IMEX=1',
+  'SELECT * FROM [EMPMASTER$]'
+  )
 ```
 
 

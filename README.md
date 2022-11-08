@@ -1,5 +1,5 @@
-# sqlserver-read-excell
-sqlserver read excell
+# sqlserver-read-excel
+sqlserver read excel
 
 ## download extension 
 

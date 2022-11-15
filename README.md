@@ -40,6 +40,12 @@ SELECT *
 FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1.xlsx;', Sheet1$);
 ```
 
+### FOR SPACE SHEET
+
+```
+SELECT * FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1234.xlsx;', 'SELECT * FROM [Sheet kk$]');
+```
+
 ### OPENDATASOURCE
 
 ```

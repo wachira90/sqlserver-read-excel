@@ -1,7 +1,7 @@
 # sqlserver-read-excel
 sqlserver read excel
 
-## download extension 
+## DOWNLOAD INSTALL EXTENSION
 
 ``Microsoft Access Database Engine 2016 Redistributable``
 
@@ -10,7 +10,7 @@ https://www.microsoft.com/en-us/download/details.aspx?id=54920
 ```
 ![](img/img4.jpg)
 
-## allow extension
+## ALLOW EXTENSION
 
 ```
 USE [master] 
@@ -31,7 +31,7 @@ RECONFIGURE WITH OVERRIDE
 GO
 ```
 
-## command connect
+## COMMAND CONNECT
 
 ### OPENROWSET
 

@@ -56,13 +56,28 @@ SELECT * FROM OPENDATASOURCE('Microsoft.ACE.OLEDB.12.0', 'Data Source=C:\sample\
 
 ### EXAMPLE
 
-#### INSERT INTO DestinationTableName
+#### INSERT INTO DestinationTableName (with create new table)
 
 ```
 USE [testdb]
 GO
 SELECT * INTO DestinationTableName FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1234.xlsx;', Sheet1$);
 ```
+
+#### INSERT INTO DestinationTableName (with exist table)
+
+```
+INSERT INTO [amsprod].[dbo].[ams_incident_bk] (IncidentID)
+SELECT TOP 10 [Incident ID]  FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1234.xlsx;', Sheet1$);
+```
+
+##### all field 
+
+```
+INSERT INTO [amsprod].[dbo].[ams_incident_bk] (*)
+SELECT TOP 10 * FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1234.xlsx;', Sheet1$);
+```
+
 
 #### FROM SERVER MAP DRIVE
 

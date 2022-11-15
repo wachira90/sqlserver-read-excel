@@ -1,0 +1,5 @@
+# RESET INCREMENT OF TABLE
+
+```
+DBCC CHECKIDENT('TableName', RESEED, 0)
+```

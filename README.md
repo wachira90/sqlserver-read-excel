@@ -54,7 +54,17 @@ SELECT * FROM OPENDATASOURCE('Microsoft.ACE.OLEDB.12.0', 'Data Source=C:\sample\
 
 ![](img/img1.jpg)
 
-### another
+### EXAMPLE
+
+#### INSERT INTO DestinationTableName
+
+```
+USE [testdb]
+GO
+SELECT * INTO DestinationTableName FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0', 'Excel 12.0 Xml;Database=C:\sample\book1234.xlsx;', Sheet1$);
+```
+
+#### FROM SERVER MAP DRIVE
 
 ```
 SELECT * FROM OPENROWSET(
@@ -63,7 +73,8 @@ SELECT * FROM OPENROWSET(
   'SELECT * FROM [EMPMASTER$]'
   )
 ```
-## example excell
+
+## EXAMPLE EXCEL
 
 ![](img/img2.jpg)
 

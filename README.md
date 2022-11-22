@@ -93,6 +93,32 @@ SELECT * FROM OPENROWSET(
 
 ![](img/img2.jpg)
 
+## CREATE STORE PROCEDURE GET EXCEL
+
+```
+/**
+FILE SYNTAX
+book_2022_11.xlsx
+book_2022_12.xlsx
+book_2023_01.xlsx
+BY https://github.com/wachira90/sqlserver-read-excel
+**/
+
+CREATE PROCEDURE GETEXCEL @SELDATE nvarchar(7)
+AS
+    DECLARE @GetDate AS VARCHAR(7)
+    DECLARE @SQL AS VARCHAR(MAX)
+    -- SET @GetDate = (SELECT STUFF(CONCAT(YEAR(GETDATE()) , MONTH(GETDATE() )),5,0,'_'))  //  2022_11
+    SET @SQL = 'SELECT * FROM OPENROWSET(''Microsoft.ACE.OLEDB.12.0'', ''Excel 12.0 Xml;Database=C:\sample\book_' + CONVERT(VARCHAR(MAX),@SELDATE) + '.xlsx;'', Sheet1$);'
+    EXEC(@SQL)
+GO
+
+/** RUN COMMAND **/
+EXEC GETEXCEL '2022_11'
+
+```
+
+
 FROM : 
 
 https://www.mssqltips.com/sqlservertip/6178/read-excel-file-in-sql-server-with-openrowset-or-opendatasource/

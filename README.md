@@ -117,8 +117,3 @@ GO
 EXEC GETEXCEL '2022_11'
 
 ```
-
-
-FROM : 
-
-https://www.mssqltips.com/sqlservertip/6178/read-excel-file-in-sql-server-with-openrowset-or-opendatasource/

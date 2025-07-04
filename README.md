@@ -117,3 +117,47 @@ GO
 EXEC GETEXCEL '2022_11'
 
 ```
+
+## FIX. The error you're seeing in SQL Server 2022:
+
+```
+Msg 15281, Level 16, State 1, Procedure xp_cmdshell, Line 1
+SQL Server blocked access to procedure 'sys.xp_cmdshell' of component 'xp_cmdshell' because this component is turned off as part of the security configuration for this server.
+```
+
+means that the `xp_cmdshell` feature is disabled for security reasons. If you **understand the risks** and **need to enable it**, here's how you can do it:
+
+### ✅ Steps to Enable `xp_cmdshell` in SQL Server
+
+1. **Open SQL Server Management Studio (SSMS)** and connect to your server.
+
+2. **Run the following commands**:
+
+```sql
+-- Enable advanced options
+EXEC sp_configure 'show advanced options', 1;
+RECONFIGURE;
+
+-- Enable xp_cmdshell
+EXEC sp_configure 'xp_cmdshell', 1;
+RECONFIGURE;
+```
+
+3. After running these commands, `xp_cmdshell` should be enabled and usable.
+
+---
+
+### ⚠️ Important Security Note
+
+`xp_cmdshell` allows execution of command-line operations from SQL Server, which can be a **security risk** if misused. It's recommended to:
+
+- Use it only when absolutely necessary.
+- Restrict access to trusted users.
+- Disable it when not in use:
+
+```sql
+-- Disable xp_cmdshell
+EXEC sp_configure 'xp_cmdshell', 0;
+RECONFIGURE;
+```
+
